@@ -5,7 +5,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 //getting some code from github repo
-                git 'https://github.com/nrohankar29/Jenkins.git'
+                git branch: 'develop', url: 'https://github.com/nrohankar29/Jenkins.git'
             }
         }
         stage('Build') {
