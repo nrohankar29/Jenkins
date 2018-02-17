@@ -1,1 +1,1 @@
-print("you are on master")
+print("you are on the master")
