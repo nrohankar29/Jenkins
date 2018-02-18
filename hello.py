@@ -1,1 +1,1 @@
-print("you are on thee develop")
+print("you are on the develop")
