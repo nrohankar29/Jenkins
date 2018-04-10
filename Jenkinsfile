@@ -1,18 +1,29 @@
 pipeline {
-    agent any
-
-    stages {
+  agent any
+  stages {
+    stage('Build') {
+      parallel {
         stage('Build') {
-            steps {
-                //running some shell commands
-                sh 'python hello.py > output.txt'
-                sh 'cat output.txt'
-            }
+          steps {
+            sh 'python hello.py > output.txt'
+            sh 'cat output.txt'
+          }
         }
-    }
-    post {
-        always{
+        stage('Test') {
+          steps {
+            echo 'hello'
+            pwd(tmp: true)
             deleteDir()
+          }
         }
+      }
     }
+  }
+  post {
+    always {
+      deleteDir()
+
+    }
+
+  }
 }
